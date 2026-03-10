@@ -39,7 +39,10 @@ app.use((_req: Request, res: Response) => {
 export { app }
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Dog API endpoint: http://localhost:${PORT}/api/dogs/random`);
-});
+// added if statement to fix conflict of multiple runnings of port 5000 (was causing errors in tests)
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Dog API endpoint: http://localhost:${PORT}/api/dogs/random`);
+  });
+}

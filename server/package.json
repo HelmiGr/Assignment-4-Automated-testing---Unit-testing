@@ -7,7 +7,7 @@
     "start": "tsx index.ts",
     "dev": "tsx watch index.ts",
     "build": "tsc",
-    "test": "vitest",
+    "test": "vitest", 
     "test:ui": "vitest --ui",
     "test:run": "vitest run"
   },

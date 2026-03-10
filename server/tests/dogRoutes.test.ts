@@ -20,7 +20,7 @@ describe('Dog routes',() => {
         // mock dogController
         // set expected json
         vi.mocked(dogController.getDogImage).mockImplementation(
-            async (req: Request, res: Response) => {
+            async (_req: Request, res: Response) => {
             res.status(200).json({ 
                 "success": true,
                 "data": {
@@ -47,7 +47,7 @@ describe('Dog routes',() => {
     // negative test returning 500
     test('GET /api/dogs/random returns 500 error', async () => {
         vi.mocked(dogController.getDogImage).mockImplementation(
-            async (req: Request, res: Response) => {
+            async (_req: Request, res: Response) => {
                 res.status(500).json({ 
                     "success": false,
                     "error": "Failed to fetch dog image: Network error" 
